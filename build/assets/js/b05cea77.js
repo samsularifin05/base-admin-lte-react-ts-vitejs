@@ -1,0 +1,1 @@
+import{j as e}from"./ee8769d0.js";const s=a=>e.jsxs("div",{className:"card",children:[e.jsx("div",{className:"card-header",children:e.jsx("h3",{className:"card-title",children:a.title})}),e.jsx("div",{className:"card-body",children:a.children}),a.footer&&e.jsx("div",{className:"card-footer",children:a.footer})]});export{s as default};
