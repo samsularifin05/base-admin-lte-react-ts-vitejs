@@ -1,1 +1,0 @@
-import{j as n}from"./ee8769d0.js";import t from"./e14d521e.js";const a=function(e){return n.jsxs("div",{className:"content-wrapper",children:[e.headerContent&&n.jsx(t,{title:e.title,menu:e.menu,submenu:e.submenu}),n.jsx("section",{className:"content",children:n.jsx("div",{className:"container-fluid",children:e.children})})]})};export{a as default};

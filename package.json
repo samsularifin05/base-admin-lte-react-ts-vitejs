@@ -30,6 +30,7 @@
     "redux-thunk": "^2.4.2"
   },
   "devDependencies": {
+    "vite-plugin-pwa": "^0.16.5",
     "@fortawesome/fontawesome-free": "^6.4.0",
     "@types/crypto-js": "^4.1.2",
     "@types/node": "^20.7.1",
