@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 import CryptoJS from "crypto-js";
 
 import { doDecrypt, doEncrypt } from "./encrypt";

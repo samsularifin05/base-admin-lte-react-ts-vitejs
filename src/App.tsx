@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import { Suspense, useEffect } from "react";
 import Skeleton from "react-loading-skeleton";
 import { Content, Footer, Header, Sidebar } from "./components";
@@ -8,7 +7,7 @@ import {
   addWindowClass,
   calculateWindowSize,
   removeWindowClass,
-  useWindowSize
+  useWindowSize,
 } from "./utils/helper/function";
 import { themesActions, utilityActions } from "./reduxStore";
 
@@ -45,7 +44,7 @@ const App = () => {
     dispatch,
     theme.getSidebarToggle,
     utility.getScreenSize,
-    windowSize.width
+    windowSize.width,
   ]);
   return (
     <Suspense fallback={<Skeleton height={"100vh"} />}>

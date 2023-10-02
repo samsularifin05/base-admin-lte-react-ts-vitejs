@@ -8,7 +8,7 @@ const initialState: ThemeState = {
   appSidebarEndMobileToggled: false,
   appSidebarMinify: false,
   handleSetBodyWhiteBg: false,
-  getSidebarToggle: false
+  getSidebarToggle: false,
 };
 
 const themes = (state: ThemeState = initialState, action: AppActionTheme) => {
@@ -16,38 +16,38 @@ const themes = (state: ThemeState = initialState, action: AppActionTheme) => {
     case AppActionTypesTheme.TOOGLESIDEBAR:
       return {
         ...state,
-        getSidebarToggle: action.payload
+        getSidebarToggle: action.payload,
       };
     case AppActionTypesTheme.SIDEBAR:
       return {
         ...state,
-        handleSetPageSidebar: action.payload
+        handleSetPageSidebar: action.payload,
       };
     case AppActionTypesTheme.HEADER:
       return {
         ...state,
-        handleSetPageHeader: action.payload
+        handleSetPageHeader: action.payload,
       };
     case AppActionTypesTheme.CONTENT:
       return {
         ...state,
-        handleSetContent: action.payload
+        handleSetContent: action.payload,
       };
     case AppActionTypesTheme.FOOTER:
       return {
         ...state,
-        handleSetFooter: action.payload
+        handleSetFooter: action.payload,
       };
 
     case AppActionTypesTheme.SIDERBARMINIFY:
       return {
         ...state,
-        appSidebarMinify: action.payload
+        appSidebarMinify: action.payload,
       };
     case AppActionTypesTheme.BGWHITE:
       return {
         ...state,
-        handleSetBodyWhiteBg: action.payload
+        handleSetBodyWhiteBg: action.payload,
       };
     default:
       return state;

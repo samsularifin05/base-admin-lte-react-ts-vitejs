@@ -6,54 +6,54 @@ import {
   handleSetContentAction,
   handleSetFooterAction,
   handleSetPageHeaderAction,
-  handleSetPageSidebarAction
+  handleSetPageSidebarAction,
 } from "./type";
 
 const appSidebarMinify = (data: boolean): appSidebarMinifyAction => {
   return {
     type: AppActionTypesTheme.SIDERBARMINIFY,
-    payload: data
+    payload: data,
   };
 };
 
 const setSidebarToggle = (data: boolean): handleSidebarToggle => {
   return {
     type: AppActionTypesTheme.TOOGLESIDEBAR,
-    payload: data
+    payload: data,
   };
 };
 
 const handleSetPageSidebar = (data: boolean): handleSetPageSidebarAction => {
   return {
     type: AppActionTypesTheme.SIDEBAR,
-    payload: data
+    payload: data,
   };
 };
 
 const handleSetPageHeader = (data: boolean): handleSetPageHeaderAction => {
   return {
     type: AppActionTypesTheme.HEADER,
-    payload: data
+    payload: data,
   };
 };
 
 const handleSetContent = (data: boolean): handleSetContentAction => {
   return {
     type: AppActionTypesTheme.CONTENT,
-    payload: data
+    payload: data,
   };
 };
 
 const handleSetFooter = (data: boolean): handleSetFooterAction => {
   return {
     type: AppActionTypesTheme.FOOTER,
-    payload: data
+    payload: data,
   };
 };
 const handleSetBodyWhiteBg = (data: boolean): handleSetBodyWhiteBg => {
   return {
     type: AppActionTypesTheme.BGWHITE,
-    payload: data
+    payload: data,
   };
 };
 
@@ -64,7 +64,7 @@ const themesActions = {
   handleSetPageSidebar,
   setSidebarToggle,
   appSidebarMinify,
-  handleSetBodyWhiteBg
+  handleSetBodyWhiteBg,
 };
 
 export default themesActions;

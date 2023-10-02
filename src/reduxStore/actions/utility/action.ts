@@ -11,51 +11,51 @@ import {
   SetLoadingAction,
   ShowButtonDelete,
   ShowModalAction,
-  SimpanDataTmpAction
+  SimpanDataTmpAction,
 } from "./type";
 import { AppThunk } from "@/reduxStore/recuers";
 
 const setScreenSize = (value: string): ScreenSizeAction => ({
   type: AppActionTypes.SCREEN_SIZE,
-  payload: value
+  payload: value,
 });
 const setLoading = (data: LoadingData): SetLoadingAction => ({
   type: AppActionTypes.IS_LOADING,
-  payload: data
+  payload: data,
 });
 const stopLoading = (): SetLoadingAction => ({
   type: AppActionTypes.IS_LOADING,
   payload: {
     screen: false,
     table: false,
-    button: false
-  }
+    button: false,
+  },
 });
 
 const showButtonDelete = (data: boolean): ShowButtonDelete => ({
   type: AppActionTypes.SHOW_BUTTON_DELETE,
-  payload: data
+  payload: data,
 });
 const isEdit = (data: boolean): SetIsEditAction => ({
   type: AppActionTypes.IS_EDIT,
-  payload: data
+  payload: data,
 });
 
 const getDataEdit = (data: []): GetDataEditAction => ({
   type: AppActionTypes.GET_DATA_EDIT,
-  payload: data
+  payload: data,
 });
 
 const loadingTabel = (data: boolean): LoadingTabelAction => ({
   type: AppActionTypes.LOADING_TABEL,
-  payload: data
+  payload: data,
 });
 
 export const showModal = <T>(data: ModalData<T>): AppThunk => {
   return async (dispatch: Dispatch<ShowModalAction<T>>) => {
     dispatch({
       type: AppActionTypes.SHOW_MODAL,
-      payload: data
+      payload: data,
     });
   };
 };
@@ -63,7 +63,7 @@ export const simpanDataTmp = <T>(data: DataTmp<T>): AppThunk => {
   return async (dispatch: Dispatch<SimpanDataTmpAction<T>>) => {
     dispatch({
       type: AppActionTypes.SIMPAN_DATA_TMP,
-      payload: data
+      payload: data,
     });
   };
 };
@@ -76,8 +76,8 @@ export const hideModal = (): AppThunk => {
         isModalShow: false,
         isEdit: false,
         data: [],
-        namaForm: ""
-      }
+        namaForm: "",
+      },
     });
   };
 };
@@ -92,6 +92,6 @@ const utilityActions = {
   loadingTabel,
   stopLoading,
   showButtonDelete,
-  setScreenSize
+  setScreenSize,
 };
 export default utilityActions;

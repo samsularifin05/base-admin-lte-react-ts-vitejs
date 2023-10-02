@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 import { Link, withRouter } from "react-router-dom";
 import { PanelContent } from "../../components";
 

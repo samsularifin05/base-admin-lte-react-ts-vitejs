@@ -19,7 +19,7 @@ const Button: React.FC<props> = (props) => {
     disabled,
     type,
     color,
-    block
+    block,
   } = props;
 
   return (

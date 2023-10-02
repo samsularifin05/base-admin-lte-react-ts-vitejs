@@ -30,7 +30,6 @@
     "redux-thunk": "^2.4.2"
   },
   "devDependencies": {
-    "vite-plugin-pwa": "^0.16.5",
     "@fortawesome/fontawesome-free": "^6.4.0",
     "@types/crypto-js": "^4.1.2",
     "@types/node": "^20.7.1",
@@ -45,13 +44,17 @@
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react-swc": "^3.3.2",
     "eslint": "^8.45.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "path": "^0.12.7",
+    "prettier": "^3.0.3",
     "react-loading-skeleton": "^3.3.1",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
     "vite-plugin-compression": "^0.5.1",
-    "vite-plugin-html": "^3.2.0"
+    "vite-plugin-html": "^3.2.0",
+    "vite-plugin-pwa": "^0.16.5"
   }
 }

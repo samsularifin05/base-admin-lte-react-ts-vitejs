@@ -9,7 +9,7 @@ export const AppActionTypes = {
   LOADING_TABEL: "LOADING_TABEL",
   SIMPAN_DATA_TMP: "SIMPAN_DATA_TMP",
   SHOW_BUTTON_DELETE: "SHOW_BUTTON_DELETE",
-  SCREEN_SIZE: "SCREEN_SIZE"
+  SCREEN_SIZE: "SCREEN_SIZE",
 } as const;
 
 export interface HideModalAction<T>

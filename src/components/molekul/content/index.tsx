@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable react-refresh/only-export-components */
 import { Route, RouteComponentProps, withRouter } from "react-router-dom";
 import { Suspense, useEffect } from "react";
 import { PageNotFound } from "@/pages";

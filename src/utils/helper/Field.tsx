@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 interface IFieldProps {
   name: string;
   type: string;
@@ -37,7 +36,7 @@ const ReanderField = ({
   textColor = "text-black",
   formGroup,
   iconFormGroup,
-  meta
+  meta,
 }: IFieldProps) => {
   const showError = meta.touched && meta.error;
 

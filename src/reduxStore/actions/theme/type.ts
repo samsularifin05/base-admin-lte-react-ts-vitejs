@@ -7,7 +7,7 @@ export const AppActionTypesTheme = {
   HEADER: "HEADER",
   CONTENT: "CONTENT",
   FOOTER: "FOOTER",
-  BGWHITE: "BGWHITE"
+  BGWHITE: "BGWHITE",
 } as const;
 
 export interface appSidebarMinifyAction

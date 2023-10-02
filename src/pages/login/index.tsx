@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 import { themesActions } from "@/reduxStore/actions";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";

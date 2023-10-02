@@ -5,30 +5,30 @@ function initialState<T>(): UtilityState<T> {
     getLoading: {
       table: false,
       button: false,
-      screen: false
+      screen: false,
     },
 
     getModal: {
       isModalShow: false,
       isEdit: false,
       data: [] as T,
-      namaForm: ""
+      namaForm: "",
     },
     hideModal: {
       isModalShow: false,
       isEdit: false,
       data: [] as T,
-      namaForm: ""
+      namaForm: "",
     },
 
     setLoadingTabel: false,
     getShowButtonDelete: false,
     getDataEdit: [],
     getDataTmp: {
-      data: [] as T
+      data: [] as T,
     },
 
-    getScreenSize: "lg"
+    getScreenSize: "lg",
   };
 }
 
@@ -40,42 +40,42 @@ const utility = <T>(
     case AppActionTypes.SHOW_BUTTON_DELETE:
       return {
         ...state,
-        getShowButtonDelete: action.payload
+        getShowButtonDelete: action.payload,
       };
     case AppActionTypes.LOADING_TABEL:
       return {
         ...state,
-        setLoadingTabel: action.payload
+        setLoadingTabel: action.payload,
       };
     case AppActionTypes.GET_DATA_EDIT:
       return {
         ...state,
-        getDataEdit: action.payload
+        getDataEdit: action.payload,
       };
     case AppActionTypes.IS_LOADING:
       return {
         ...state,
-        getLoading: action.payload
+        getLoading: action.payload,
       };
     case AppActionTypes.HIDE_MODAL:
       return {
         ...state,
-        hideModal: action.payload
+        hideModal: action.payload,
       };
     case AppActionTypes.SHOW_MODAL:
       return {
         ...state,
-        getModal: action.payload
+        getModal: action.payload,
       };
     case AppActionTypes.SIMPAN_DATA_TMP:
       return {
         ...state,
-        getDataTmp: action.payload
+        getDataTmp: action.payload,
       };
     case AppActionTypes.SCREEN_SIZE:
       return {
         ...state,
-        getScreenSize: action.payload
+        getScreenSize: action.payload,
       };
 
     default:
