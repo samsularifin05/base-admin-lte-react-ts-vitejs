@@ -3,14 +3,14 @@ import { reducer as formReducer } from "redux-form";
 import { TypedUseSelectorHook } from "react-redux";
 import { useSelector } from "react-redux";
 import { ThunkAction, ThunkDispatch } from "redux-thunk";
-import RootAction, { RootState } from "../actions";
-import utilityReducer from "./reducerUtility";
-import themeReducer from "./reducerTheme";
+import utilityReducer from "../recuers/reducerUtility";
+import themeReducer from "../recuers/reducerTheme";
+import RootAction, { RootState } from "./rootActions";
 
 export const rootReducer = combineReducers({
   form: formReducer,
   utility: utilityReducer,
-  theme: themeReducer
+  theme: themeReducer,
 });
 const store = createStore(rootReducer);
 
