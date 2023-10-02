@@ -1,16 +1,18 @@
-import { applyMiddleware, createStore, Store } from "redux";
 import {
-  persistReducer,
-  persistStore,
-  Persistor,
+  Store,
   Transform,
-} from "redux-persist";
-import storage from "redux-persist/lib/storage";
-import thunk, { ThunkMiddleware } from "redux-thunk";
+  applyMiddleware,
+  createStore,
+  storage,
+  persistReducer,
+  ThunkMiddleware,
+  Persistor,
+  thunk,
+  persistStore,
+  composeWithDevTools,
+} from "@/utils";
 
-import { composeWithDevTools } from "redux-devtools-extension";
-import RootAction, { RootState } from "./rootState/rootActions";
-import { rootReducer } from "./recuers";
+import { rootReducer, RootAction, RootState } from "./index";
 
 const dataTransform: Transform<RootState<string>, RootState<string>> = {
   in: (inboundState: RootState<string>) => inboundState,

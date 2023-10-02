@@ -1,15 +1,20 @@
-import { Suspense, useEffect } from "react";
-import Skeleton from "react-loading-skeleton";
 import { Content, Footer, Header, Sidebar } from "./components";
-import { AppDispatch, useAppSelector } from "./reduxStore/recuers";
-import { useDispatch } from "react-redux";
 import {
   addWindowClass,
   calculateWindowSize,
   removeWindowClass,
   useWindowSize,
-} from "./utils/helper/function";
-import { themesActions, utilityActions } from "./reduxStore";
+  Skeleton,
+  useDispatch,
+  useEffect,
+  Suspense,
+} from "./utils";
+import {
+  AppDispatch,
+  themesActions,
+  useAppSelector,
+  utilityActions,
+} from "./reduxStore";
 
 const App = () => {
   const theme = useAppSelector((state) => state.theme);

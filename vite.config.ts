@@ -2,6 +2,7 @@
 import { defineConfig, splitVendorChunkPlugin } from "vite";
 import react from "@vitejs/plugin-react-swc";
 
+import { compression } from 'vite-plugin-compression2'
 import viteCompression from "vite-plugin-compression";
 import * as path from "path";
 import { createHtmlPlugin } from "vite-plugin-html";
@@ -103,6 +104,9 @@ export default defineConfig(() => {
     plugins: [
       react(),
       VitePWA(pwaOptions),
+      compression({
+        algorithm: 'brotliCompress',
+      }),
       createHtmlPlugin({
         minify: {
           minifyCSS: true,

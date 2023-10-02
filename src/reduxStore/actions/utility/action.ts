@@ -13,7 +13,7 @@ import {
   ShowModalAction,
   SimpanDataTmpAction,
 } from "./type";
-import { AppThunk } from "@/reduxStore/recuers";
+import { AppThunk } from "@/reduxStore";
 
 const setScreenSize = (value: string): ScreenSizeAction => ({
   type: AppActionTypes.SCREEN_SIZE,
