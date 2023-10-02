@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-refresh/only-export-components */
-import { Menu } from "@/utils/interface";
+import { Menu } from "@/interface";
 import { memo, useEffect, useState } from "react";
 import { Link, Route } from "react-router-dom";
 

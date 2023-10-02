@@ -2,7 +2,7 @@
 import CryptoJS from "crypto-js";
 
 import { doDecrypt, doEncrypt } from "./encrypt";
-import { LocalStorageItem, dataSignatur } from "../interface";
+import { LocalStorageItem, dataSignatur } from "../../interface";
 import { useEffect, useState } from "react";
 import { Logo } from "@/assets";
 export const { VITE_APP_BE, VITE_APP_KEY, VITE_APP_MODE, VITE_APP_SECRETKEY } =
@@ -75,7 +75,7 @@ export const getCurrentDateTime = () => {
 
   return {
     date: formattedDate,
-    time: formattedTime
+    time: formattedTime,
   };
 };
 
@@ -132,7 +132,7 @@ export const setItem = <T,>(nama: string, data: T) => {
   if (typeof window !== "undefined") {
     const item: LocalStorageItem<T> = {
       nama: doEncrypt(nama),
-      data: doEncrypt(data)
+      data: doEncrypt(data),
     };
     localStorage.setItem(item.nama, JSON.stringify(item.data));
   }
@@ -168,13 +168,13 @@ export const LoadingApp = () => {
 export const useWindowSize = () => {
   const [windowSize, setWindowSize] = useState({
     width: window.innerWidth,
-    height: window.innerHeight
+    height: window.innerHeight,
   });
   useEffect(() => {
     function handleResize() {
       setWindowSize({
         width: window.innerWidth,
-        height: window.innerHeight
+        height: window.innerHeight,
       });
     }
     window.addEventListener("resize", handleResize);

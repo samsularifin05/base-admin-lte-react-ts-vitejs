@@ -1,5 +1,5 @@
 import { Button, Col, Row } from "@/components";
-import ReanderField from "@/utils/helper/Field";
+import { ReanderField } from "@/utils";
 import { Field, reduxForm, InjectedFormProps } from "redux-form";
 
 interface FormData {
@@ -57,7 +57,7 @@ const FormLogin: React.FC<
 
 const ReduxFormLogin = reduxForm<FormData, FormLoginProps>({
   form: "FormLogin",
-  enableReinitialize: true
+  enableReinitialize: true,
 })(FormLogin);
 
 export default ReduxFormLogin;
