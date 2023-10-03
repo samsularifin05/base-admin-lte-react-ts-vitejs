@@ -4,10 +4,11 @@ import {
   calculateWindowSize,
   removeWindowClass,
   useWindowSize,
-  Skeleton,
   useDispatch,
   useEffect,
   Suspense,
+  userData,
+  Skeleton,
 } from "./utils";
 import {
   AppDispatch,
@@ -51,13 +52,20 @@ const App = () => {
     utility.getScreenSize,
     windowSize.width,
   ]);
+
   return (
-    <Suspense fallback={<Skeleton height={"100vh"} />}>
+    <Suspense fallback={<Skeleton width="100%" height="1000px" />}>
       <div className="wrapper">
-        {theme.handleSetPageHeader && <Header />}
-        {theme.handleSetPageSidebar && <Sidebar />}
-        {theme.handleSetContent && <Content />}
-        {theme.handleSetFooter && <Footer />}
+        {userData.length !== 0 ? (
+          <>
+            {theme.handleSetPageHeader && <Header />}
+            {theme.handleSetPageSidebar && <Sidebar />}
+            {theme.handleSetContent && <Content />}
+            {theme.handleSetFooter && <Footer />}
+          </>
+        ) : (
+          <>{theme.handleSetContent && <Content />}</>
+        )}
       </div>
       <div
         id="sidebar-overlay"

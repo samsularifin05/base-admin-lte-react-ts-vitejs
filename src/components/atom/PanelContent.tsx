@@ -6,10 +6,11 @@ interface Props {
   menu?: string;
   submenu?: string;
   children?: React.ReactNode;
+  disabled?: boolean;
 }
 const PanelContent: React.FC<Props> = function (props) {
   return (
-    <div className="content-wrapper">
+    <div className={props.disabled ? "" : "content-wrapper"}>
       {props.headerContent && (
         <HeaderContent
           title={props.title}

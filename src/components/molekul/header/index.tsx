@@ -1,12 +1,30 @@
 import { AppDispatch, themesActions, useAppSelector } from "@/reduxStore";
-import { Navbar, Nav, NavDropdown, Dropdown, useDispatch } from "@/utils";
+import {
+  Navbar,
+  Nav,
+  NavDropdown,
+  Dropdown,
+  useDispatch,
+  withRouter,
+  RouteComponentProps,
+  removeItem,
+} from "@/utils";
 
-const Header = () => {
+type HeaderProps = RouteComponentProps;
+
+const Header: React.FC<HeaderProps> = (props) => {
   const theme = useAppSelector((state) => state.theme);
   const dispatch = useDispatch<AppDispatch>();
 
   const handleToggleMenuSidebar = () => {
     dispatch(themesActions.setSidebarToggle(!theme.getSidebarToggle));
+  };
+  const logout = () => {
+    removeItem("userdata");
+    setTimeout(() => {
+      props.history.push("/");
+      window.location.reload();
+    }, 300);
   };
   return (
     <Navbar
@@ -43,7 +61,9 @@ const Header = () => {
             id="collasible-nav-dropdown"
           >
             <Dropdown.Item href="#">Ubah Password</Dropdown.Item>
-            <Dropdown.Item href="#">Logout</Dropdown.Item>
+            <Dropdown.Item href="#" onClick={() => logout()}>
+              Logout
+            </Dropdown.Item>
           </NavDropdown>
         </Nav>
       </Navbar.Collapse>
@@ -51,4 +71,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default withRouter(Header);

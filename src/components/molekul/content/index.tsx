@@ -1,6 +1,4 @@
-import { PageNotFound } from "@/pages";
 import MenuRoutes from "@/router";
-import { RouteInterface } from "@/interface";
 import {
   Route,
   RouteComponentProps,
@@ -9,6 +7,10 @@ import {
   useEffect,
   withRouter,
 } from "@/utils";
+import { PageNotFound } from "@/pages";
+
+import { useAppSelector } from "@/reduxStore";
+import { RouteInterface } from "@/interface";
 
 type Props = RouteComponentProps;
 
@@ -29,22 +31,30 @@ const Content: React.FC<Props> = (props) => {
       setTitle(props.history.location.pathname, MenuRoutes);
     };
   });
+
+  const cekmenu = MenuRoutes.find(
+    (list) => list.path === props.history.location.pathname
+  );
+  const theme = useAppSelector((state) => state.theme);
+
   return (
-    <Suspense fallback={<Skeleton width="100%" height={1000} />}>
-      {MenuRoutes.find(
-        (list) => list.path === props.history.location.pathname
-      ) === undefined ? (
-        <Route component={() => <PageNotFound />} />
-      ) : (
-        MenuRoutes.map((route, index) => (
-          <Route
-            key={index}
-            exact={route.exact}
-            path={route.path}
-            component={route?.component}
-          />
-        ))
-      )}
+    <Suspense fallback={<Skeleton width="100%" height="1000px" />}>
+      <div className={theme.handleSetPageSidebar ? "app-content " : ""}>
+        {cekmenu === undefined ? (
+          <PageNotFound />
+        ) : (
+          MenuRoutes.map((route, index) => {
+            return (
+              <Route
+                key={index}
+                exact={route.exact}
+                path={route.path}
+                component={route?.component}
+              />
+            );
+          })
+        )}
+      </div>
     </Suspense>
   );
 };

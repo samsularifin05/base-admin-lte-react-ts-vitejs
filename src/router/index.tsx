@@ -1,9 +1,16 @@
-import { RouteInterface } from "@/interface";
-import { Dashboard, Login, PageNotFound } from "../pages";
+import { Dashboard, DataUser, Home } from "@/pages";
+import Login from "@/pages/login";
+import { ProtectedRoute } from "./ProtectedRoute";
 
-const MenuRoutes: RouteInterface[] = [
+const MenuRoutes = [
   {
     path: "/",
+    exact: true,
+    title: "Undangan Digital",
+    component: () => <Home />,
+  },
+  {
+    path: "/login-admin",
     exact: true,
     title: "Login",
     component: () => <Login />,
@@ -12,12 +19,21 @@ const MenuRoutes: RouteInterface[] = [
     path: "/dashboard",
     exact: true,
     title: "Dashboard",
-    component: () => <Dashboard />,
+    component: () => (
+      <ProtectedRoute>
+        <Dashboard />{" "}
+      </ProtectedRoute>
+    ),
   },
   {
-    path: "/404",
-    exact: false,
-    component: () => <PageNotFound />,
+    path: "/data-user",
+    exact: true,
+    title: "Data User",
+    component: () => (
+      <ProtectedRoute>
+        <DataUser />
+      </ProtectedRoute>
+    ),
   },
 ];
 

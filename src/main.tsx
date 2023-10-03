@@ -1,4 +1,3 @@
-import App from "./App.tsx";
 import {
   Skeleton,
   Suspense,
@@ -8,11 +7,14 @@ import {
   ReactDOM,
 } from "@/utils";
 import { store, persistor } from "./reduxStore";
+import { lazy } from "react";
 
 import("./assets/css/index.css").then(() => {
   import("@fortawesome/fontawesome-free/css/all.min.css");
   import("react-loading-skeleton/dist/skeleton.css");
 });
+
+const App = lazy(() => import("./App.tsx"));
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <Provider store={store}>

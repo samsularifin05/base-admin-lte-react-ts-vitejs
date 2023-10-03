@@ -127,6 +127,8 @@ export const getItem = <T,>(nama: string): T => {
   return [] as T;
 };
 
+export const userData: UserLogin = getItem<UserLogin>("userdata");
+
 export const setItem = <T,>(nama: string, data: T) => {
   if (typeof window !== "undefined") {
     const item: LocalStorageItem<T> = {

@@ -3,11 +3,17 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { withRouter, RouteComponentProps } from "react-router-dom";
 import FormLogin from "./form";
+import { setItem, userData } from "@/utils";
+import { AppDispatch } from "@/reduxStore";
 type LoginProps = RouteComponentProps;
 
 const Login: React.FC<LoginProps> = (props) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
+
   useEffect(() => {
+    if (userData?.length !== 0) {
+      props.history.push("/dashboard");
+    }
     dispatch(themesActions.handleSetPageSidebar(false));
     dispatch(themesActions.handleSetPageHeader(false));
     dispatch(themesActions.handleSetFooter(false));
@@ -17,10 +23,16 @@ const Login: React.FC<LoginProps> = (props) => {
       dispatch(themesActions.handleSetPageSidebar(true));
       dispatch(themesActions.handleSetFooter(true));
     };
-  }, [dispatch]);
+  }, [dispatch, props.history]);
 
   const loginProses = () => {
-    props.history.push("/dashboard");
+    setItem("userdata", {
+      akses_token: "123123",
+      namaCustomer: "DEMO",
+    });
+    setTimeout(() => {
+      window.location.reload();
+    }, 300);
   };
   return (
     <div className="login-box container" style={{ marginTop: "10%" }}>
