@@ -79,7 +79,7 @@ const ReanderField = ({
           </div>
         )}
         {showError && (
-          <span className="error invalid-feedback">{meta.meta.error}.</span>
+          <span className="error invalid-feedback">{meta?.meta?.error}.</span>
         )}
       </div>
     </div>
