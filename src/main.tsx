@@ -10,8 +10,8 @@ import { store, persistor } from "./reduxStore";
 import { lazy } from "react";
 
 import("./assets/css/index.css").then(() => {
-  import("@fortawesome/fontawesome-free/css/all.min.css");
   import("react-loading-skeleton/dist/skeleton.css");
+  import("@fortawesome/fontawesome-free/css/all.min.css");
 });
 
 const App = lazy(() => import("./App.tsx"));
