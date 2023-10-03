@@ -20,9 +20,12 @@ import { BrowserRouter } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import { Col, Input, Row, TablePaginationConfig } from "antd";
 import { Button, Table, Popover, Spin } from "antd";
+import Axios, { AxiosResponse, AxiosRequestConfig } from "axios";
+
 export {
   ReactDOM,
   Button,
+  Axios,
   Table,
   Popover,
   Spin,
@@ -53,6 +56,8 @@ export {
   composeWithDevTools,
   thunk,
 };
+export type { AxiosRequestConfig };
+export type { AxiosResponse };
 export type { TablePaginationConfig };
 export type {
   Store,

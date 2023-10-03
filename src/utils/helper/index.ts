@@ -1,3 +1,4 @@
+import { deleteData, getData, postData, putData } from "./Axios";
 import ReanderField from "./Field";
 import {
   LoadingApp,
@@ -21,6 +22,10 @@ import {
 } from "./function";
 
 export {
+  putData,
+  deleteData,
+  getData,
+  postData,
   LoadingContent,
   loadImage,
   calculateWindowSize,

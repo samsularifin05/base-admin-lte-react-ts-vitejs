@@ -1,7 +1,7 @@
 import CryptoJS from "crypto-js";
 
 import { doDecrypt, doEncrypt } from "./encrypt";
-import { LocalStorageItem, dataSignatur } from "../../interface";
+import { LocalStorageItem, UserLogin } from "../../interface";
 import { useEffect, useState } from "react";
 import { Logo } from "@/assets";
 export const { VITE_APP_BE, VITE_APP_KEY, VITE_APP_MODE, VITE_APP_SECRETKEY } =
@@ -144,9 +144,18 @@ export const removeItem = (nama: string) => {
 };
 export const timestamp = Math.floor(Date.now() / (1000 * 100000));
 
-export const generateSignature = (data: dataSignatur, secretKey: string) => {
-  const serializedData = JSON.stringify(data);
-  const signature = CryptoJS.HmacSHA256(serializedData, secretKey).toString();
+export const generateSignature = () => {
+  const userData: UserLogin = getItem<UserLogin>("userdata");
+  const signatur = {
+    APP_KEY: `${VITE_APP_KEY}`,
+    TOKEN: `${userData?.access_token}`,
+    timestamp: Number(VITE_APP_MODE === 0 ? 0 : timestamp),
+  };
+  const serializedData = JSON.stringify(signatur);
+  const signature = CryptoJS.HmacSHA256(
+    serializedData,
+    VITE_APP_SECRETKEY
+  ).toString();
   return signature;
 };
 
