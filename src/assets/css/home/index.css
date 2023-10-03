@@ -150,7 +150,7 @@ p {
   font-size: var(--fs-3);
 }
 
-.btn {
+.btn-app {
   font-size: var(--fs-6);
   font-weight: var(--fw-700);
   padding: 15px 30px;
@@ -158,16 +158,16 @@ p {
   transition: var(--transition);
 }
 
-.btn:is(:hover, :focus) {
+.btn-app:is(:hover, :focus) {
   transform: translateY(-2px);
 }
 
-.btn-primary {
+.btn-primary-home {
   background: var(--majorelle-blue);
   color: var(--white);
 }
 
-.btn-primary:is(:hover, :focus) {
+.btn-primary-home:is(:hover, :focus) {
   --majorelle-blue: hsl(245, 67%, 55%);
   box-shadow: 0 3px 10px hsla(245, 67%, 59%, 0.5);
 }
@@ -307,7 +307,7 @@ p {
   outline-color: var(--majorelle-blue);
 }
 
-.hero .btn-primary {
+.hero .btn-primary-home {
   margin-inline: auto;
 }
 
@@ -636,14 +636,14 @@ textarea.input-field {
   max-height: 200px;
 }
 
-.contact .btn-primary {
+.contact .btn-primary-home {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
 }
 
-.contact .btn-primary ion-icon {
+.contact .btn-primary-home ion-icon {
   --ionicon-stroke-width: 40px;
 }
 
@@ -783,10 +783,10 @@ footer .logo {
     padding-right: 155px;
   }
 
-  .hero .btn-primary {
+  .hero .btn-primary-home {
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 0px;
+    right: 0px;
     padding-block: 12.5px;
   }
 

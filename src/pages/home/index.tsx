@@ -12,6 +12,7 @@ import {
   LogoHome,
   LogoHomeFooter,
 } from "@/assets";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -75,9 +76,9 @@ const Home = () => {
               </li>
             </ul>
             <div className="header-home-actions">
-              <a href="#" className="header-home-action-link">
+              <Link to="/login-admin" className="header-home-action-link">
                 Log in
-              </a>
+              </Link>
               <a href="#" className="header-home-action-link">
                 Register
               </a>
@@ -106,7 +107,7 @@ const Home = () => {
                     placeholder="Enter Your Email"
                     className="email-field"
                   />
-                  <button type="submit" className="btn btn-primary">
+                  <button type="submit" className="btn-app btn-primary-home">
                     Subscribe
                   </button>
                 </form>
@@ -128,7 +129,7 @@ const Home = () => {
                   Nam libero tempore cum soluta as nobis est eligendi optio
                   cumque nihile impedite quo minus id quod maxime.
                 </p>
-                <button className="btn btn-outline">Learn More</button>
+                <button className="btn-app btn-outline">Learn More</button>
               </div>
               <ul className="about-list">
                 <li>
