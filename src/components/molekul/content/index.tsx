@@ -1,9 +1,14 @@
-import { Route, RouteComponentProps, withRouter } from "react-router-dom";
-import { Suspense, useEffect } from "react";
 import { PageNotFound } from "@/pages";
 import MenuRoutes from "@/router";
-import Skeleton from "react-loading-skeleton";
 import { RouteInterface } from "@/interface";
+import {
+  Route,
+  RouteComponentProps,
+  Skeleton,
+  Suspense,
+  useEffect,
+  withRouter,
+} from "@/utils";
 
 type Props = RouteComponentProps;
 

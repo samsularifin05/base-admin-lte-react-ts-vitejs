@@ -5,7 +5,7 @@ import { withRouter, RouteComponentProps } from "react-router-dom";
 import FormLogin from "./form";
 type LoginProps = RouteComponentProps;
 
-const Login: React.FC<LoginProps> = () => {
+const Login: React.FC<LoginProps> = (props) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(themesActions.handleSetPageSidebar(false));
@@ -15,8 +15,13 @@ const Login: React.FC<LoginProps> = () => {
     return () => {
       dispatch(themesActions.handleSetPageHeader(true));
       dispatch(themesActions.handleSetPageSidebar(true));
+      dispatch(themesActions.handleSetFooter(true));
     };
   }, [dispatch]);
+
+  const loginProses = () => {
+    props.history.push("/dashboard");
+  };
   return (
     <div className="login-box container" style={{ marginTop: "10%" }}>
       <div className="card card-outline card-primary">
@@ -27,7 +32,7 @@ const Login: React.FC<LoginProps> = () => {
         </div>
         <div className="card-body">
           <p className="login-box-msg">Sign in to start your session</p>
-          <FormLogin onSubmit={() => console.log("MASUK")} />
+          <FormLogin onSubmit={() => loginProses()} />
         </div>
       </div>
     </div>

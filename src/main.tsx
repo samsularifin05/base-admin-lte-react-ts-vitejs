@@ -1,10 +1,12 @@
-import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
-import { BrowserRouter } from "react-router-dom";
-import { Provider } from "react-redux";
-import { PersistGate } from "redux-persist/integration/react";
-import { Suspense } from "react";
-import Skeleton from "react-loading-skeleton";
+import {
+  Skeleton,
+  Suspense,
+  PersistGate,
+  Provider,
+  BrowserRouter,
+  ReactDOM,
+} from "@/utils";
 import { store, persistor } from "./reduxStore/store.ts";
 
 import("./assets/css/index.css").then(() => {

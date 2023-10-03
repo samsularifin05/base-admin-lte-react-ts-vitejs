@@ -1,6 +1,5 @@
 import { Menu } from "@/interface";
-import { memo, useEffect, useState } from "react";
-import { Link, Route } from "react-router-dom";
+import { Link, Route, memo, useEffect, useState } from "@/utils";
 
 interface props {
   data: Menu;
