@@ -30,8 +30,9 @@ const Header = () => {
             </div>
           </Nav.Link>
         </Nav>
-        <Nav>
+        <Nav className="navbar-nav ml-auto">
           <NavDropdown
+            className=" dropdown-menu-right"
             title={
               <img
                 src={"https://adminlte.io/themes/v3/dist/img/user2-160x160.jpg"}
@@ -40,7 +41,6 @@ const Header = () => {
               />
             }
             id="collasible-nav-dropdown"
-            className="mr-3"
           >
             <Dropdown.Item href="#">Ubah Password</Dropdown.Item>
             <Dropdown.Item href="#">Logout</Dropdown.Item>

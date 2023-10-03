@@ -18,9 +18,17 @@ import { Navbar, Nav, NavDropdown, Dropdown } from "react-bootstrap";
 import { PersistGate } from "redux-persist/integration/react";
 import { BrowserRouter } from "react-router-dom";
 import ReactDOM from "react-dom/client";
-
+import { Col, Input, Row, TablePaginationConfig } from "antd";
+import { Button, Table, Popover, Spin } from "antd";
 export {
   ReactDOM,
+  Button,
+  Table,
+  Popover,
+  Spin,
+  Col,
+  Input,
+  Row,
   BrowserRouter,
   Provider,
   PersistGate,
@@ -45,6 +53,7 @@ export {
   composeWithDevTools,
   thunk,
 };
+export type { TablePaginationConfig };
 export type {
   Store,
   RouteComponentProps,

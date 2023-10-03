@@ -10,10 +10,10 @@ export interface TableColumn {
 interface CustomTablePaginationConfig extends TablePaginationConfig {
   q?: string;
 }
-export interface TableMasterProps<T> {
-  dataSource: T;
+export interface TableMasterProps {
+  dataSource: any;
   columns: TableColumn[];
-  title: string;
+  title?: string;
   addButtonTitle?: string;
   rowKey: string;
   isLoading?: boolean;
