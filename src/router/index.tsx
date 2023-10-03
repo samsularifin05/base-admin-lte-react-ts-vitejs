@@ -1,6 +1,7 @@
+import { RouteInterface } from "@/interface";
 import { Dashboard, Login, PageNotFound } from "../pages";
 
-const MenuRoutes = [
+const MenuRoutes: RouteInterface[] = [
   {
     path: "/",
     exact: true,
@@ -13,7 +14,6 @@ const MenuRoutes = [
     title: "Dashboard",
     component: () => <Dashboard />,
   },
-
   {
     path: "/404",
     exact: false,

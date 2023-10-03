@@ -1,3 +1,5 @@
+import { WrappedFieldProps } from "redux-form";
+
 interface IFieldProps {
   name: string;
   type: string;
@@ -8,17 +10,17 @@ interface IFieldProps {
   textColor?: string;
   iconFormGroup?: string;
   tabIndex?: string;
-  ref?: any;
+  ref?: React.RefObject<HTMLInputElement>;
   id?: string;
   minLength?: number;
   maxLength?: number;
   uppercase?: string;
   placeholder?: string;
   customeCss?: string;
-  input?: any;
-  onChange?: () => void;
-  onBlur?: () => void;
-  meta?: any;
+  input?: React.InputHTMLAttributes<HTMLInputElement>;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (event: React.FocusEvent) => void;
+  meta?: WrappedFieldProps;
 }
 const ReanderField = ({
   input,
@@ -27,7 +29,6 @@ const ReanderField = ({
   readOnly,
   placeholder,
   id,
-  tabIndex,
   ref,
   customeCss,
   minLength,
@@ -38,7 +39,7 @@ const ReanderField = ({
   iconFormGroup,
   meta,
 }: IFieldProps) => {
-  const showError = meta.touched && meta.error;
+  const showError = meta?.meta?.touched && meta?.meta?.error;
 
   return (
     <div className="form-group">
@@ -57,14 +58,13 @@ const ReanderField = ({
             }
           }}
           {...input}
-          tabIndex={tabIndex}
           ref={ref}
           autoComplete="off"
           type={type}
           id={id}
           style={{ textTransform: uppercase ? "uppercase" : "none" }}
           className={`form-control ${showError && "is-invalid "} ${
-            customeCss || ""
+            customeCss ? customeCss : ""
           } `}
           readOnly={readOnly}
           minLength={minLength}
@@ -79,7 +79,7 @@ const ReanderField = ({
           </div>
         )}
         {showError && (
-          <span className="error invalid-feedback">{meta.error}.</span>
+          <span className="error invalid-feedback">{meta.meta.error}.</span>
         )}
       </div>
     </div>

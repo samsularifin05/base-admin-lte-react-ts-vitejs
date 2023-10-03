@@ -1,10 +1,11 @@
-interface Children {
+export interface ChildrenMenu {
   icon?: string;
   path?: string;
   title: string;
   type?: string;
-  blank?: string;
-  children?: Array<Children>;
+  exact?: boolean;
+  navheader?: boolean;
+  children?: Array<ChildrenMenu>;
 }
 export interface Menu {
   path: string;
@@ -13,5 +14,5 @@ export interface Menu {
   type?: string;
   exact?: boolean;
   navheader?: boolean;
-  children?: Array<Children>;
+  children?: Array<ChildrenMenu>;
 }

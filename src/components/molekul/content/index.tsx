@@ -3,12 +3,13 @@ import { Suspense, useEffect } from "react";
 import { PageNotFound } from "@/pages";
 import MenuRoutes from "@/router";
 import Skeleton from "react-loading-skeleton";
+import { RouteInterface } from "@/interface";
 
 type Props = RouteComponentProps;
 
 const Content: React.FC<Props> = (props) => {
-  const setTitle = (path: string, routeArray: any) => {
-    let pageTitle;
+  const setTitle = (path: string, routeArray: RouteInterface[]) => {
+    let pageTitle: string | undefined;
     for (let i = 0; i < routeArray.length; i++) {
       if (routeArray[i].path === path) {
         pageTitle = `Admin Lte | ${routeArray[i].title}`;
@@ -16,6 +17,7 @@ const Content: React.FC<Props> = (props) => {
     }
     document.title = pageTitle || "Admin Lte | React App";
   };
+
   useEffect(() => {
     setTitle(props.history.location.pathname, MenuRoutes);
     return () => {

@@ -11,3 +11,4 @@ export interface LocalStorageItem<T> {
 
 export * from "./tabel-interface";
 export * from "./menu-interface";
+export * from "./router-interface";
