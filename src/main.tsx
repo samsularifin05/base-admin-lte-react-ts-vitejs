@@ -7,7 +7,7 @@ import {
   BrowserRouter,
   ReactDOM,
 } from "@/utils";
-import { store, persistor } from "./reduxStore/store.ts";
+import { store, persistor } from "./reduxStore";
 
 import("./assets/css/index.css").then(() => {
   import("@fortawesome/fontawesome-free/css/all.min.css");
