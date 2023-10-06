@@ -9,7 +9,8 @@ Made In By : https://github.com/codewithsadee/landio
 #Tampilan Login
 <img src="./ss/Screenshot 2023-10-03 at 15.35.35.png"/>
 
-#Tampilan Admin
+#Tampilan Admin 
+Made In By : https://github.com/ColorlibHQ/AdminLTE
 <img src="./ss/Screenshot 2023-10-03 at 15.35.45.png"/>
 
 #Hasil Lighthouse
