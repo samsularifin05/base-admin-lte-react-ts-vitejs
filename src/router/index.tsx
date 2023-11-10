@@ -1,4 +1,4 @@
-import { Dashboard, DataUser, Home } from "@/pages";
+import { Dashboard, Home, Widgets } from "@/pages";
 import Login from "@/pages/login";
 import { ProtectedRoute } from "./ProtectedRoute";
 
@@ -26,12 +26,12 @@ const MenuRoutes = [
     ),
   },
   {
-    path: "/data-user",
+    path: "/widgets",
     exact: true,
-    title: "Data User",
+    title: "Widgets",
     component: () => (
       <ProtectedRoute>
-        <DataUser />
+        <Widgets />{" "}
       </ProtectedRoute>
     ),
   },

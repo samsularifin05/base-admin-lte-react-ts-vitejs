@@ -3,6 +3,6 @@ const PageNotFound = lazy(() => import("./pageNotFound"));
 const Dashboard = lazy(() => import("./dashboard"));
 const Login = lazy(() => import("./login"));
 const Home = lazy(() => import("./home"));
-const DataUser = lazy(() => import("./datamaster"));
+const Widgets = lazy(() => import("./widgets"));
 
-export { Dashboard, Login, PageNotFound, Home, DataUser };
+export { Dashboard, Login, PageNotFound, Home, Widgets };

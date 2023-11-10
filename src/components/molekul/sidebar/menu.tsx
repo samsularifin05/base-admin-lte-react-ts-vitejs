@@ -7,17 +7,31 @@ const menu: Array<Menu> = [
     title: "Dashboard",
   },
   {
+    path: "/widgets",
+    icon: "nav-icon fas fa-th",
+    title: "Widgets",
+  },
+
+  {
     path: "#",
-    icon: "nav-icon fas fa-database",
-    title: "Data Master",
+    icon: "nav-icon fas fa-edit",
+    title: "Forms",
     children: [
       {
-        path: "/data-users",
-        title: "Data Users",
+        path: "#",
+        title: "General Elements",
       },
       {
-        path: "/category",
-        title: "Menu 2",
+        path: "#",
+        title: "Advanced Elements",
+      },
+      {
+        path: "#",
+        title: "Editors",
+      },
+      {
+        path: "#",
+        title: "Validation",
       },
     ],
   },
