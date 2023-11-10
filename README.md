@@ -1,6 +1,6 @@
 # React + TypeScript + Vite + Redux + PWA
 
-Demo Link https://base-admin-lte-react.netlify.app
+Demo Link adminlte-base.netlify.app
 
 #Tampilan Home
 Made In By : https://github.com/codewithsadee/landio
