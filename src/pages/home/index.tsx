@@ -78,9 +78,9 @@ const Home = () => {
             </ul>
             <div className="header-home-actions">
               {userData.length !== 0 ? (
-                <Link to="/dashboard" className="header-home-action-link">
+                <a href="/dashboard" className="header-home-action-link">
                   Dashboard
-                </Link>
+                </a>
               ) : (
                 <React.Fragment>
                   <Link to="/login-admin" className="header-home-action-link">
