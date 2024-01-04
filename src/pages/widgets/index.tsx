@@ -11,8 +11,8 @@ const Widgets = () => {
     >
       <div className="container-fluid">
         <h5 className="mb-2">Info Box</h5>
-        <div className="row ">
-          <div className="col-3 ">
+        <div className="row">
+          <div className="col-lg-3 col-6">
             <div className="info-box">
               <span className="info-box-icon bg-info">
                 <i className="far fa-envelope"></i>
@@ -23,7 +23,7 @@ const Widgets = () => {
               </div>
             </div>
           </div>
-          <div className="col-3 ">
+          <div className="col-lg-3 col-6 ">
             <div className="info-box">
               <span className="info-box-icon bg-success">
                 <i className="far fa-flag"></i>
@@ -34,7 +34,7 @@ const Widgets = () => {
               </div>
             </div>
           </div>
-          <div className="col-3 ">
+          <div className="col-lg-3 col-6 ">
             <div className="info-box">
               <span className="info-box-icon bg-warning">
                 <i className="far fa-copy"></i>
@@ -45,7 +45,7 @@ const Widgets = () => {
               </div>
             </div>
           </div>
-          <div className="col-3 ">
+          <div className="col-lg-3 col-6 ">
             <div className="info-box">
               <span className="info-box-icon bg-danger">
                 <i className="far fa-star"></i>
@@ -64,7 +64,7 @@ const Widgets = () => {
           </small>
         </h5>
         <div className="row ">
-          <div className="col-3 ">
+          <div className="col-lg-3 col-6 ">
             <div className="info-box shadow-none">
               <span className="info-box-icon bg-info">
                 <i className="far fa-envelope"></i>
@@ -75,7 +75,7 @@ const Widgets = () => {
               </div>
             </div>
           </div>
-          <div className="col-3 ">
+          <div className="col-lg-3 col-6 ">
             <div className="info-box shadow-sm">
               <span className="info-box-icon bg-success">
                 <i className="far fa-flag"></i>
@@ -86,7 +86,7 @@ const Widgets = () => {
               </div>
             </div>
           </div>
-          <div className="col-3 ">
+          <div className="col-lg-3 col-6 ">
             <div className="info-box shadow">
               <span className="info-box-icon bg-warning">
                 <i className="far fa-copy"></i>
@@ -97,7 +97,7 @@ const Widgets = () => {
               </div>
             </div>
           </div>
-          <div className="col-3 ">
+          <div className="col-lg-3 col-6 ">
             <div className="info-box shadow-lg">
               <span className="info-box-icon bg-danger">
                 <i className="far fa-star"></i>
@@ -113,7 +113,7 @@ const Widgets = () => {
           Info Box With <code>bg-*</code>
         </h5>
         <div className="row ">
-          <div className="col-3 ">
+          <div className="col-lg-3 col-6 ">
             <div className="info-box bg-info">
               <span className="info-box-icon">
                 <i className="far fa-bookmark"></i>
@@ -130,7 +130,7 @@ const Widgets = () => {
               </div>
             </div>
           </div>
-          <div className="col-3 ">
+          <div className="col-lg-3 col-6 ">
             <div className="info-box bg-success">
               <span className="info-box-icon">
                 <i className="far fa-thumbs-up"></i>
@@ -147,7 +147,7 @@ const Widgets = () => {
               </div>
             </div>
           </div>
-          <div className="col-3 ">
+          <div className="col-lg-3 col-6 ">
             <div className="info-box bg-warning">
               <span className="info-box-icon">
                 <i className="far fa-calendar-alt"></i>
@@ -164,7 +164,7 @@ const Widgets = () => {
               </div>
             </div>
           </div>
-          <div className="col-3 ">
+          <div className="col-lg-3 col-6 ">
             <div className="info-box bg-danger">
               <span className="info-box-icon">
                 <i className="fas fa-comments"></i>

@@ -7,8 +7,8 @@ const Footer = () => {
         </div>
         <strong>
           Copyright © 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.
+          All rights reserved.
         </strong>{" "}
-        All rights reserved.
       </footer>
       <aside className="control-sidebar control-sidebar-dark"></aside>
     </>

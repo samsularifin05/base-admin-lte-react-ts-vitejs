@@ -1,5 +1,5 @@
 import { AppDispatch, themesActions } from "@/reduxStore";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import "@/assets/css/home/index.css";
 import {
@@ -13,6 +13,7 @@ import {
   LogoHomeFooter,
 } from "@/assets";
 import { Link } from "react-router-dom";
+import { userData } from "@/utils";
 
 const Home = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -76,12 +77,20 @@ const Home = () => {
               </li>
             </ul>
             <div className="header-home-actions">
-              <Link to="/login-admin" className="header-home-action-link">
-                Log in
-              </Link>
-              <a href="#" className="header-home-action-link">
-                Register
-              </a>
+              {userData.length !== 0 ? (
+                <Link to="/dashboard" className="header-home-action-link">
+                  Dashboard
+                </Link>
+              ) : (
+                <React.Fragment>
+                  <Link to="/login-admin" className="header-home-action-link">
+                    Log in
+                  </Link>
+                  <a href="#" className="header-home-action-link">
+                    Register
+                  </a>
+                </React.Fragment>
+              )}
             </div>
           </nav>
         </div>
