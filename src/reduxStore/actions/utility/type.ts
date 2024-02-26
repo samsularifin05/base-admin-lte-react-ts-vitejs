@@ -65,7 +65,7 @@ export interface ModalData<T> {
   namaForm?: string;
 }
 export interface DataTmp<T> {
-  data?: T;
+  data: T;
   namaForm?: string;
 }
 

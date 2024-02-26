@@ -22,7 +22,8 @@ export type AppThunk<ReturnType = void> = ThunkAction<
   unknown,
   Action<string>
 >;
-export const useAppSelector: TypedUseSelectorHook<RootState<string>> =
-  useSelector;
+export const useAppSelector: TypedUseSelectorHook<
+  ReturnType<typeof store.getState>
+> = useSelector;
 
 export default store;
