@@ -41,7 +41,7 @@ const Login = (props: InjectedFormProps<FormLoginDto>) => {
   };
 
   if (utility.getIsLogin) {
-    return <Navigate to="/admin/dashboard" replace={true} />;
+    return <Navigate to="/admin/dashboard" />;
   }
   return (
     <div className="login-box container" style={{ marginTop: "10%" }}>
