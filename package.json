@@ -55,7 +55,7 @@
     "purgecss": "^5.0.0",
     "react-loading-skeleton": "^3.4.0",
     "typescript": "^5.0.2",
-    "vite": "^5.0.10",
+    "vite": "^5.0.12",
     "vite-plugin-compression": "^0.5.1",
     "vite-plugin-compression2": "^0.10.5",
     "vite-plugin-html": "^3.2.1",
