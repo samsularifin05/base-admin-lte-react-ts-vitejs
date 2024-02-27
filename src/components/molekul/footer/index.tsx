@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 const Footer = () => {
   return (
     <>
@@ -6,8 +8,7 @@ const Footer = () => {
           <b>Version</b> 3.2.0
         </div>
         <strong>
-          Copyright © 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.
-          All rights reserved.
+          Copyright © 2014-2021 AdminLTE.io. All rights reserved.
         </strong>{" "}
       </footer>
       <aside className="control-sidebar control-sidebar-dark"></aside>
@@ -15,4 +16,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default memo(Footer);

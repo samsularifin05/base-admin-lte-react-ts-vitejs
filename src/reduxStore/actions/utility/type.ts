@@ -10,6 +10,7 @@ export const AppActionTypes = {
   SIMPAN_DATA_TMP: "SIMPAN_DATA_TMP",
   SHOW_BUTTON_DELETE: "SHOW_BUTTON_DELETE",
   SCREEN_SIZE: "SCREEN_SIZE",
+  PUSH_NAVIGATION: "PUSH_NAVIGATION",
 } as const;
 
 export interface HideModalAction<T>
@@ -52,6 +53,10 @@ export interface ScreenSizeAction
   extends Action<typeof AppActionTypes.SCREEN_SIZE> {
   payload: string;
 }
+export interface pushNavigation
+  extends Action<typeof AppActionTypes.PUSH_NAVIGATION> {
+  payload: string;
+}
 
 export interface LoadingData {
   table?: boolean;
@@ -74,6 +79,7 @@ export interface UtilityState<T> {
   setLoadingTabel: boolean;
   getShowButtonDelete: boolean;
   getScreenSize: string;
+  getPath: string;
   getDataEdit: [];
   getDataTmp: DataTmp<T>;
   getModal: ModalData<T>;
@@ -88,6 +94,7 @@ export type AppActionUtility<T> =
   | SetIsEditAction
   | GetDataEditAction
   | ShowButtonDelete
+  | pushNavigation
   | ScreenSizeAction
   | SimpanDataTmpAction<T>
   | LoadingTabelAction;

@@ -1,5 +1,5 @@
 import { Menu } from "@/interface";
-import { Link, Route, memo, useEffect, useState } from "@/utils";
+import { Link, memo, useEffect, useState } from "@/utils";
 
 interface props {
   data: Menu;
@@ -38,50 +38,39 @@ const SidebarNavList: React.FC<props> = (props) => {
   }, [props]);
 
   return (
-    <Route
-      path={props.data.path}
-      exact={props.data.exact}
-      children={() => (
-        <>
-          {props.data.navheader && (
-            <li className="nav-header">{props.data.title}</li>
-          )}
-          <li className={`nav-item${isMenuExtended ? " menu-open" : ""}`}>
-            {props.data.children ? (
-              <Link
-                to={props.data.path}
-                className="nav-link"
-                onClick={handleMainMenuAction}
-                style={{ cursor: "pointer" }}
-              >
-                {icon} {titlesub}
-              </Link>
-            ) : props.data.navheader !== true ? (
-              <Link
-                to={props.data.path}
-                className="nav-link"
-                onClick={handleMainMenuAction}
-                style={{ cursor: "pointer" }}
-              >
-                {props.submenu === "active" ? (
-                  <i className="far fa-circle nav-icon" />
-                ) : null}
-                {icon} {title}
-              </Link>
-            ) : null}
+    <li className={`nav-item${isMenuExtended ? " menu-open" : ""}`}>
+      {props.data.children ? (
+        <Link
+          to={props.data.path}
+          className="nav-link"
+          onClick={handleMainMenuAction}
+          style={{ cursor: "pointer" }}
+        >
+          {icon} {titlesub}
+        </Link>
+      ) : props.data.navheader !== true ? (
+        <Link
+          to={props.data.path}
+          className="nav-link"
+          onClick={handleMainMenuAction}
+          style={{ cursor: "pointer" }}
+        >
+          {props.submenu === "active" ? (
+            <i className="far fa-circle nav-icon" />
+          ) : null}
+          {icon} {title}
+        </Link>
+      ) : null}
 
-            {props.data.children && (
-              <ul className="nav nav-treeview">
-                {props.data.children &&
-                  props.data.children.map((submenu: any, i: number) => (
-                    <SidebarNavList data={submenu} key={i} submenu="active" />
-                  ))}
-              </ul>
-            )}
-          </li>
-        </>
+      {props.data.children && (
+        <ul className="nav nav-treeview">
+          {props.data.children &&
+            props.data.children.map((submenu: any, i: number) => (
+              <SidebarNavList data={submenu} key={i} submenu="active" />
+            ))}
+        </ul>
       )}
-    />
+    </li>
   );
 };
 

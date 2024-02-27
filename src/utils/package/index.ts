@@ -13,7 +13,7 @@ import {
 import storage from "redux-persist/lib/storage";
 import thunk, { ThunkMiddleware } from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { Link, Route, RouteComponentProps, withRouter } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import { Navbar, Nav, NavDropdown, Dropdown } from "react-bootstrap";
 import { PersistGate } from "redux-persist/integration/react";
 import { BrowserRouter } from "react-router-dom";
@@ -44,7 +44,6 @@ export {
   NavDropdown,
   Dropdown,
   Route,
-  withRouter,
   useDispatch,
   Suspense,
   useEffect,
@@ -59,10 +58,4 @@ export {
 export type { AxiosRequestConfig };
 export type { AxiosResponse };
 export type { TablePaginationConfig };
-export type {
-  Store,
-  RouteComponentProps,
-  Persistor,
-  Transform,
-  ThunkMiddleware,
-};
+export type { Store, Persistor, Transform, ThunkMiddleware };

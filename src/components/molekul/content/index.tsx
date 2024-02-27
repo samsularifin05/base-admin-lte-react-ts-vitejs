@@ -1,62 +1,50 @@
-import MenuRoutes from "@/router";
-import {
-  Route,
-  RouteComponentProps,
-  Skeleton,
-  Suspense,
-  useEffect,
-  withRouter,
-} from "@/utils";
-import { PageNotFound } from "@/pages";
-
 import { useAppSelector } from "@/reduxStore";
-import { RouteInterface } from "@/interface";
+import AppRoute from "@/router/routes";
+import { LoadingContent } from "@/utils";
+import { Suspense, memo, useEffect } from "react";
+import { Outlet, useLocation } from "react-router-dom";
+const Content = () => {
+  const theme = useAppSelector((state) => state.theme);
 
-type Props = RouteComponentProps;
+  const location = useLocation();
 
-const Content: React.FC<Props> = (props) => {
-  const setTitle = (path: string, routeArray: RouteInterface[]) => {
-    let pageTitle: string | undefined;
-    for (let i = 0; i < routeArray.length; i++) {
-      if (routeArray[i].path === path) {
-        pageTitle = `Admin Lte | ${routeArray[i].title}`;
-      }
-    }
-    document.title = pageTitle || "Admin Lte | React App";
+  const setTitle = (path: string, routeArray: any) => {
+    let appTitle;
+
+    routeArray.forEach((row: any) => {
+      row.children.forEach((el: any) => {
+        if (el.path === path) {
+          appTitle = el.title;
+        }
+      });
+    });
+    document.title =
+      (appTitle ? appTitle : "Halaman Admin") + " | Color Admin Base";
   };
 
   useEffect(() => {
-    setTitle(props.history.location.pathname, MenuRoutes);
-    return () => {
-      setTitle(props.history.location.pathname, MenuRoutes);
-    };
+    const { pathname } = location;
+
+    setTitle(pathname, AppRoute);
   });
 
-  const cekmenu = MenuRoutes.find(
-    (list) => list.path === props.history.location.pathname
-  );
-  const theme = useAppSelector((state) => state.theme);
-
+  const sidebarAndHeader =
+    theme.handleSetPageHeader && theme.handleSetPageSidebar;
   return (
-    <Suspense fallback={<Skeleton width="100%" height="1000px" />}>
-      <div className={theme.handleSetPageSidebar ? "app-content " : ""}>
-        {cekmenu === undefined ? (
-          <PageNotFound />
-        ) : (
-          MenuRoutes.map((route, index) => {
-            return (
-              <Route
-                key={index}
-                exact={route.exact}
-                path={route.path}
-                component={route?.component}
-              />
-            );
-          })
-        )}
+    <div className={theme.handleSetPageSidebar ? "app-content " : ""}>
+      <div
+        className={sidebarAndHeader ? "content-wrapper" : ""}
+        style={{
+          overflowX: sidebarAndHeader ? "scroll" : undefined,
+          height: sidebarAndHeader ? "600px" : undefined,
+        }}
+      >
+        <Suspense fallback={<LoadingContent loading />}>
+          <Outlet />
+        </Suspense>
       </div>
-    </Suspense>
+    </div>
   );
 };
 
-export default withRouter(Content);
+export default memo(Content);

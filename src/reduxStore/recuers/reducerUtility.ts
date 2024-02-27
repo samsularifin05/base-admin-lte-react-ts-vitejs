@@ -29,6 +29,7 @@ function initialState<T>(): UtilityState<T> {
     },
 
     getScreenSize: "lg",
+    getPath: "",
   };
 }
 
@@ -61,6 +62,11 @@ const utility = <T>(
       return {
         ...state,
         hideModal: action.payload,
+      };
+    case AppActionTypes.PUSH_NAVIGATION:
+      return {
+        ...state,
+        getPath: action.payload,
       };
     case AppActionTypes.SHOW_MODAL:
       return {

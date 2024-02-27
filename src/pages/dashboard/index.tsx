@@ -1,46 +1,7 @@
 import { Card, PanelContent } from "@/components";
-import { AppDispatch, useAppSelector, utilityActions } from "@/reduxStore";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-interface FakturHutang {
-  no_faktur_hutang: string;
-  kode_barcode: string;
-  tgl_system: string;
-  harga: number;
-  berat: number;
-  total: number;
-  diskon: string;
-  input_by: string;
-}
 
 const Dashboard = function () {
-  const dispatch = useDispatch<AppDispatch>();
-
-  useEffect(() => {
-    dispatch(
-      utilityActions.simpanDataTmp<FakturHutang[]>({
-        data: [
-          {
-            no_faktur_hutang: "PS-1231",
-            kode_barcode: "string",
-            tgl_system: "string",
-            harga: 0,
-            berat: 0,
-            total: 0,
-            diskon: "",
-            input_by: "",
-          },
-        ],
-      })
-    );
-  }, [dispatch]);
-
-  const dataTmp = useAppSelector(
-    (state) => state.utility.getDataTmp.data as FakturHutang[]
-  );
-
-  console.log(dataTmp[0].berat);
   return (
     <PanelContent headerContent title="Dashboard">
       <div className="row">

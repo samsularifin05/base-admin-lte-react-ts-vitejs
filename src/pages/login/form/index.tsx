@@ -1,23 +1,30 @@
 import { Button, Col, Row } from "@/components";
-import { ReanderField } from "@/utils";
+import { ReanderField, setItem, useDispatch } from "@/utils";
 import { Field, reduxForm, InjectedFormProps } from "redux-form";
+import { AppDispatch, utilityActions } from "@/reduxStore";
+import { FormLoginDto } from "../dto/formLoginDto";
+import { useNavigate } from "react-router-dom";
 
-interface FormData {
-  username: string;
-  password: string;
-}
+const FormLogin = (props: InjectedFormProps<FormLoginDto>) => {
+  const { handleSubmit } = props;
+  const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate();
 
-interface FormLoginProps {
-  onSubmit: (data: FormData) => void;
-}
-
-const FormLogin: React.FC<
-  InjectedFormProps<FormData, FormLoginProps> & FormLoginProps
-> = (props) => {
-  const { handleSubmit, onSubmit } = props;
-
-  const handleFormSubmit = (data: FormData) => {
-    onSubmit(data);
+  const handleFormSubmit = (dataForm: FormLoginDto) => {
+    dispatch(utilityActions.setLoading({ screen: true }));
+    setTimeout(() => {
+      setItem("userdata", {
+        token: 1231,
+        username: dataForm.username,
+      });
+      setTimeout(() => {
+        navigate("/admin/dashboard");
+        dispatch(utilityActions.stopLoading());
+        setTimeout(() => {
+          window.location.reload();
+        }, 300);
+      }, 300);
+    }, 1000);
   };
 
   return (
@@ -55,9 +62,6 @@ const FormLogin: React.FC<
   );
 };
 
-const ReduxFormLogin = reduxForm<FormData, FormLoginProps>({
+export default reduxForm<FormLoginDto>({
   form: "FormLogin",
-  enableReinitialize: true,
 })(FormLogin);
-
-export default ReduxFormLogin;

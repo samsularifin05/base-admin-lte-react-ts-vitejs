@@ -2,12 +2,12 @@ import { Menu } from "@/interface";
 
 const menu: Array<Menu> = [
   {
-    path: "/dashboard",
+    path: "/admin/dashboard",
     icon: "nav-icon fas fa-tachometer-alt",
     title: "Dashboard",
   },
   {
-    path: "/widgets",
+    path: "/admin/widgets",
     icon: "nav-icon fas fa-th",
     title: "Widgets",
   },

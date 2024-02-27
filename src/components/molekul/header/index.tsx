@@ -1,31 +1,41 @@
-import { AppDispatch, themesActions, useAppSelector } from "@/reduxStore";
+import {
+  AppDispatch,
+  themesActions,
+  useAppSelector,
+  utilityActions,
+} from "@/reduxStore";
 import {
   Navbar,
   Nav,
   NavDropdown,
   Dropdown,
   useDispatch,
-  withRouter,
-  RouteComponentProps,
   removeItem,
 } from "@/utils";
+import { memo, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 
-type HeaderProps = RouteComponentProps;
-
-const Header: React.FC<HeaderProps> = (props) => {
-  const theme = useAppSelector((state) => state.theme);
+const Header: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
+  const theme = useAppSelector((state) => state.theme);
 
-  const handleToggleMenuSidebar = () => {
-    dispatch(themesActions.setSidebarToggle(!theme.getSidebarToggle));
-  };
+  const memoizedHandleToggleMenuSidebar = useMemo(() => {
+    return () => {
+      dispatch(themesActions.setSidebarToggle(!theme.getSidebarToggle));
+    };
+  }, [dispatch, theme.getSidebarToggle]); // Re-create only when dependencies change
+
+  const navigate = useNavigate();
   const logout = () => {
+    dispatch(utilityActions.setLoading({ screen: true }));
     removeItem("userdata");
     setTimeout(() => {
-      props.history.push("/");
+      navigate("/login-admin");
+      dispatch(utilityActions.stopLoading());
       window.location.reload();
-    }, 300);
+    }, 1000);
   };
+
   return (
     <Navbar
       collapseOnSelect
@@ -39,7 +49,7 @@ const Header: React.FC<HeaderProps> = (props) => {
         <Nav className="mr-auto navbar-nav">
           <Nav.Link href="#" className="nav-item">
             <div
-              onClick={handleToggleMenuSidebar}
+              onClick={memoizedHandleToggleMenuSidebar}
               data-widget="pushmenu"
               aria-label="Menu Hide Bar"
               role="button"
@@ -61,7 +71,7 @@ const Header: React.FC<HeaderProps> = (props) => {
             id="collasible-nav-dropdown"
           >
             <Dropdown.Item href="#">Ubah Password</Dropdown.Item>
-            <Dropdown.Item href="#" onClick={() => logout()}>
+            <Dropdown.Item href="#" onClick={logout}>
               Logout
             </Dropdown.Item>
           </NavDropdown>
@@ -71,4 +81,4 @@ const Header: React.FC<HeaderProps> = (props) => {
   );
 };
 
-export default withRouter(Header);
+export default memo(Header);

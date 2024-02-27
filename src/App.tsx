@@ -1,14 +1,12 @@
 import { Content, Footer, Header, Sidebar } from "./components";
 import {
   addWindowClass,
-  calculateWindowSize,
+  calculateWindowSize, // Assuming this is expensive
   removeWindowClass,
   useWindowSize,
   useDispatch,
   useEffect,
-  Suspense,
-  userData,
-  Skeleton,
+  LoadingContent,
 } from "./utils";
 import {
   AppDispatch,
@@ -16,6 +14,7 @@ import {
   useAppSelector,
   utilityActions,
 } from "./reduxStore";
+import React, { useMemo } from "react";
 
 const App = () => {
   const theme = useAppSelector((state) => state.theme);
@@ -23,6 +22,12 @@ const App = () => {
 
   const dispatch = useDispatch<AppDispatch>();
   const windowSize = useWindowSize();
+
+  // Memoize the calculated window size to avoid unnecessary recalculations
+  const memoizedWindowSize = useMemo(
+    () => calculateWindowSize(windowSize.width),
+    [windowSize.width]
+  );
 
   const handleToggleMenuSidebar = () => {
     dispatch(themesActions.setSidebarToggle(!theme.getSidebarToggle));
@@ -33,7 +38,9 @@ const App = () => {
     removeWindowClass("sidebar-collapse");
     removeWindowClass("sidebar-open");
 
-    const size = calculateWindowSize(windowSize.width);
+    // Use the memoized window size
+    const size = memoizedWindowSize;
+
     if (utility.getScreenSize !== size) {
       dispatch(utilityActions.setScreenSize(size));
     }
@@ -48,31 +55,26 @@ const App = () => {
     }
   }, [
     dispatch,
+    memoizedWindowSize,
     theme.getSidebarToggle,
     utility.getScreenSize,
-    windowSize.width,
   ]);
 
   return (
-    <Suspense fallback={<Skeleton width="100%" height="1000px" />}>
+    <React.Fragment>
       <div className="wrapper">
-        {userData.length !== 0 ? (
-          <>
-            {theme.handleSetPageHeader && <Header />}
-            {theme.handleSetPageSidebar && <Sidebar />}
-            {theme.handleSetContent && <Content />}
-            {theme.handleSetFooter && <Footer />}
-          </>
-        ) : (
-          <>{theme.handleSetContent && <Content />}</>
-        )}
+        {theme.handleSetPageHeader && <Header />}
+        {theme.handleSetPageSidebar && <Sidebar />}
+        {theme.handleSetContent && <Content />}
+        {theme.handleSetFooter && <Footer />}
       </div>
       <div
         id="sidebar-overlay"
         role="presentation"
         onClick={() => handleToggleMenuSidebar()}
       />
-    </Suspense>
+      <LoadingContent loading={utility.getLoading.screen} />
+    </React.Fragment>
   );
 };
 

@@ -1,6 +1,6 @@
-import { Link, Route } from "@/utils";
+import { Link } from "@/utils";
 import SidebarNavList from "./SidebarNavList";
-import menuApps from "./menu";
+import { Menu } from "@/router";
 
 const Sidebar = () => {
   return (
@@ -15,12 +15,8 @@ const Sidebar = () => {
             data-widget="treeview"
             data-accordion="false"
           >
-            {menuApps.map((menu, index) => (
-              <Route
-                path={menu.path}
-                key={index}
-                children={() => <SidebarNavList data={menu} key={index} />}
-              />
+            {Menu.map((menu, index) => (
+              <SidebarNavList data={menu} key={index} />
             ))}
           </ul>
         </nav>

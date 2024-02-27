@@ -11,13 +11,7 @@ interface Props {
 }
 const PanelContent: React.FC<Props> = function (props) {
   return (
-    <div
-      className={props.disabled ? "" : "content-wrapper"}
-      style={{
-        overflowX: props.scroll ? "scroll" : "hidden",
-        height: props.scroll ? "600px" : "none",
-      }}
-    >
+    <div>
       {props.headerContent && (
         <HeaderContent
           title={props.title}

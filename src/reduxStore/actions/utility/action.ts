@@ -12,9 +12,18 @@ import {
   ShowButtonDelete,
   ShowModalAction,
   SimpanDataTmpAction,
+  pushNavigation,
 } from "./type";
 import { AppThunk } from "@/reduxStore";
 
+const removePath = (value: string): pushNavigation => ({
+  type: AppActionTypes.PUSH_NAVIGATION,
+  payload: value,
+});
+const setNavigation = (value: string): pushNavigation => ({
+  type: AppActionTypes.PUSH_NAVIGATION,
+  payload: value,
+});
 const setScreenSize = (value: string): ScreenSizeAction => ({
   type: AppActionTypes.SCREEN_SIZE,
   payload: value,
@@ -93,5 +102,7 @@ const utilityActions = {
   stopLoading,
   showButtonDelete,
   setScreenSize,
+  setNavigation,
+  removePath,
 };
 export default utilityActions;
