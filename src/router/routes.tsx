@@ -1,32 +1,38 @@
-import { getItem } from "../utils/helper";
 import App from "../App";
 import { Dashboard, Home, Login, PageNotFound, Widgets } from "../pages";
-import { Navigate } from "react-router-dom";
-import { UserLogin } from "@/interface";
 import { ProtectedRoute } from "./ProtectedRoute";
-const userData: UserLogin[] = getItem<UserLogin[]>("userdata");
-
-const isLoggedIn = userData.length === 0 ? false : true;
 
 const AppRoute = [
   {
     path: "/admin/",
-    element: isLoggedIn ? <App /> : <Navigate to="/login-admin" />,
+    element: <App />,
     children: [
       {
         path: "*",
         title: "Halaman Tidak Ditemukan",
-        element: <PageNotFound />,
+        element: (
+          <ProtectedRoute>
+            <PageNotFound />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/admin/dashboard",
         title: "Dashboard",
-        element: <Dashboard />,
+        element: (
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/admin/widgets",
         title: "Widgets",
-        element: <Widgets />,
+        element: (
+          <ProtectedRoute>
+            <Widgets />
+          </ProtectedRoute>
+        ),
       },
     ],
   },
@@ -37,11 +43,7 @@ const AppRoute = [
       {
         path: "/login-admin",
         title: "Login",
-        element: (
-          <ProtectedRoute>
-            <Login />,
-          </ProtectedRoute>
-        ),
+        element: <Login />,
       },
       {
         path: "*",

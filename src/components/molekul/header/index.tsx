@@ -32,7 +32,7 @@ const Header: React.FC = () => {
     setTimeout(() => {
       navigate("/login-admin");
       dispatch(utilityActions.stopLoading());
-      window.location.reload();
+      dispatch(utilityActions.isLogin(false));
     }, 1000);
   };
 

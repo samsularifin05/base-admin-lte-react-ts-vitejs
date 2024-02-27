@@ -1,14 +1,23 @@
 import { Navigate } from "react-router-dom";
-
-import { getItem } from "@/utils";
-import { UserLogin } from "@/interface";
+import { themesActions, useAppSelector } from "@/reduxStore";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
 export const ProtectedRoute = ({ children }: any) => {
-  const userData: UserLogin[] = getItem<UserLogin[]>("userdata");
-  const isLoggedIn = userData.length === 0 ? false : true;
+  const utility = useAppSelector((state) => state.utility);
+  const dispatch = useDispatch();
 
-  if (isLoggedIn) {
-    return <Navigate to={"/admin/dashboard"} />;
+  useEffect(() => {
+    if (utility.getIsLogin) {
+      dispatch(themesActions.handleSetPageHeader(true));
+      dispatch(themesActions.handleSetPageSidebar(true));
+      dispatch(themesActions.handleSetFooter(true));
+      dispatch(themesActions.handleSetContent(true));
+    }
+  }, [dispatch, utility.getIsLogin]);
+
+  if (!utility.getIsLogin) {
+    return <Navigate to={"/login-admin"} />;
   } else {
     return children;
   }

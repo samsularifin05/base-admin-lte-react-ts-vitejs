@@ -20,7 +20,7 @@ const dataTransform: Transform<RootState<string>, RootState<string>> = {
 };
 
 const persistConfig = {
-  blacklist: ["form"],
+  blacklist: [],
   key: "root",
   storage,
   transforms: [dataTransform],

@@ -1,10 +1,9 @@
-import { lazy } from "react";
-const TableMaster = lazy(() => import("./tableMaster"));
-const Button = lazy(() => import("./Button"));
-const Card = lazy(() => import("./Card"));
-const Row = lazy(() => import("./Row"));
-const Col = lazy(() => import("./Col"));
-const HeaderContent = lazy(() => import("./HeaderContent"));
+import TableMaster from "./tableMaster";
+import Button from "./Button";
+import Card from "./Card";
+import Row from "./Row";
+import Col from "./Col";
+import HeaderContent from "./HeaderContent";
 import PanelContent from "./PanelContent";
 
 export { Button, Col, Row, Card, PanelContent, HeaderContent, TableMaster };

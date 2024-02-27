@@ -29,7 +29,7 @@ function initialState<T>(): UtilityState<T> {
     },
 
     getScreenSize: "lg",
-    getPath: "",
+    getIsLogin: false,
   };
 }
 
@@ -63,10 +63,10 @@ const utility = <T>(
         ...state,
         hideModal: action.payload,
       };
-    case AppActionTypes.PUSH_NAVIGATION:
+    case AppActionTypes.ISLOGIN:
       return {
         ...state,
-        getPath: action.payload,
+        getIsLogin: action.payload,
       };
     case AppActionTypes.SHOW_MODAL:
       return {

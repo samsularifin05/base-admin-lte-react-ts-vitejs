@@ -14,7 +14,7 @@ import {
   useAppSelector,
   utilityActions,
 } from "./reduxStore";
-import React, { memo, useMemo } from "react";
+import React, { useMemo } from "react";
 
 const App = () => {
   const theme = useAppSelector((state) => state.theme);
@@ -62,10 +62,16 @@ const App = () => {
   return (
     <React.Fragment>
       <div className="wrapper">
-        {theme.handleSetPageHeader && <Header />}
-        {theme.handleSetPageSidebar && <Sidebar />}
-        {theme.handleSetContent && <Content />}
-        {theme.handleSetFooter && <Footer />}
+        {utility.getIsLogin ? (
+          <>
+            {theme.handleSetPageHeader && <Header />}
+            {theme.handleSetPageSidebar && <Sidebar />}
+            {theme.handleSetContent && <Content />}
+            {theme.handleSetFooter && <Footer />}
+          </>
+        ) : (
+          theme.handleSetContent && <Content />
+        )}
       </div>
 
       <div
@@ -78,4 +84,4 @@ const App = () => {
   );
 };
 
-export default memo(App);
+export default App;

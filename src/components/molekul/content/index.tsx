@@ -1,7 +1,6 @@
 import { useAppSelector } from "@/reduxStore";
 import AppRoute from "@/router/routes";
-import { LoadingContent } from "@/utils";
-import { Suspense, memo, useEffect } from "react";
+import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 const Content = () => {
   const theme = useAppSelector((state) => state.theme);
@@ -39,12 +38,10 @@ const Content = () => {
           height: sidebarAndHeader ? "600px" : undefined,
         }}
       >
-        <Suspense fallback={<LoadingContent loading />}>
-          <Outlet />
-        </Suspense>
+        <Outlet />
       </div>
     </div>
   );
 };
 
-export default memo(Content);
+export default Content;
