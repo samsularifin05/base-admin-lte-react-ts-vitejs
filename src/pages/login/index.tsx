@@ -33,10 +33,9 @@ const Login = (props: InjectedFormProps<FormLoginDto>) => {
       token: 1231,
       username: dataForm.username,
     });
-    dispatch(utilityActions.isLogin(true));
     setTimeout(() => {
+      dispatch(utilityActions.isLogin(true));
       dispatch(utilityActions.stopLoading());
-      window.location.reload();
     }, 300);
   };
 
