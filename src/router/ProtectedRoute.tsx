@@ -12,7 +12,6 @@ export const ProtectedRoute = ({ children }: any) => {
       dispatch(themesActions.handleSetPageHeader(true));
       dispatch(themesActions.handleSetPageSidebar(true));
       dispatch(themesActions.handleSetFooter(true));
-      dispatch(themesActions.handleSetContent(true));
     }
   }, [dispatch, utility.getIsLogin]);
 

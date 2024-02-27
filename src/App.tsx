@@ -66,11 +66,11 @@ const App = () => {
           <>
             {theme.handleSetPageHeader && <Header />}
             {theme.handleSetPageSidebar && <Sidebar />}
-            {theme.handleSetContent && <Content />}
+            <Content />
             {theme.handleSetFooter && <Footer />}
           </>
         ) : (
-          theme.handleSetContent && <Content />
+          <Content />
         )}
       </div>
 
