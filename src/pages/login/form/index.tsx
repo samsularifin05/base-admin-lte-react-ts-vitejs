@@ -20,9 +20,7 @@ const FormLogin = (props: InjectedFormProps<FormLoginDto>) => {
       setTimeout(() => {
         navigate("/admin/dashboard");
         dispatch(utilityActions.stopLoading());
-        setTimeout(() => {
-          window.location.reload();
-        }, 300);
+        window.location.reload();
       }, 300);
     }, 1000);
   };

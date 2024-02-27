@@ -3,6 +3,7 @@ import App from "../App";
 import { Dashboard, Home, Login, PageNotFound, Widgets } from "../pages";
 import { Navigate } from "react-router-dom";
 import { UserLogin } from "@/interface";
+import { ProtectedRoute } from "./ProtectedRoute";
 const userData: UserLogin[] = getItem<UserLogin[]>("userdata");
 
 const isLoggedIn = userData.length === 0 ? false : true;
@@ -36,7 +37,11 @@ const AppRoute = [
       {
         path: "/login-admin",
         title: "Login",
-        element: <Login />,
+        element: (
+          <ProtectedRoute>
+            <Login />,
+          </ProtectedRoute>
+        ),
       },
       {
         path: "*",
