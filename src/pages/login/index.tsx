@@ -34,7 +34,10 @@ const Login = (props: InjectedFormProps<FormLoginDto>) => {
       username: dataForm.username,
     });
     dispatch(utilityActions.isLogin(true));
-    dispatch(utilityActions.stopLoading());
+    setTimeout(() => {
+      dispatch(utilityActions.stopLoading());
+      window.location.reload();
+    }, 300);
   };
 
   if (utility.getIsLogin) {
