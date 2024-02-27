@@ -7,6 +7,7 @@ import {
   useDispatch,
   useEffect,
   LoadingContent,
+  userData,
 } from "./utils";
 import {
   AppDispatch,
@@ -62,12 +63,17 @@ const App = () => {
 
   return (
     <React.Fragment>
-      <div className="wrapper">
-        {theme.handleSetPageHeader && <Header />}
-        {theme.handleSetPageSidebar && <Sidebar />}
-        {theme.handleSetContent && <Content />}
-        {theme.handleSetFooter && <Footer />}
-      </div>
+      {userData.username ? (
+        <div className="wrapper">
+          {theme.handleSetPageHeader && <Header />}
+          {theme.handleSetPageSidebar && <Sidebar />}
+          {theme.handleSetContent && <Content />}
+          {theme.handleSetFooter && <Footer />}
+        </div>
+      ) : (
+        theme.handleSetContent && <Content />
+      )}
+
       <div
         id="sidebar-overlay"
         role="presentation"
