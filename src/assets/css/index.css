@@ -11,10 +11,6 @@ body::-webkit-scrollbar {
   display: none; /* for Chrome, Safari, and Opera */
 }
 
-.wrapperContent {
-  overflowx: "scroll" !important;
-  height: "600px" !important;
-}
 .loading-background {
   z-index: 9999 !important;
 }

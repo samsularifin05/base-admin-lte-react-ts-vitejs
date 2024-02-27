@@ -1,6 +1,8 @@
-const fs = require("fs");
-const path = require("path");
-const JavaScriptObfuscator = require("javascript-obfuscator");
+import fs from "fs";
+import path from "path";
+import JavaScriptObfuscator from "javascript-obfuscator";
+
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 const settings = {
   compact: true,
