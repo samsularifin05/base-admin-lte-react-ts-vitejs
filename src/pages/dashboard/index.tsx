@@ -1,4 +1,5 @@
 import { Card, PanelContent } from "@/components";
+import { memo } from "react";
 import { Link } from "react-router-dom";
 
 const Dashboard = function () {
@@ -19,6 +20,7 @@ const Dashboard = function () {
             </Link>
           </div>
         </div>
+
         <div className="col-lg-3 col-6">
           <div className="small-box bg-success">
             <div className="inner">
@@ -75,4 +77,4 @@ const Dashboard = function () {
     </PanelContent>
   );
 };
-export default Dashboard;
+export default memo(Dashboard);

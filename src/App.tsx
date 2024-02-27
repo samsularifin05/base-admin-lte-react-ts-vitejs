@@ -14,7 +14,7 @@ import {
   useAppSelector,
   utilityActions,
 } from "./reduxStore";
-import React, { useMemo } from "react";
+import React, { memo, useMemo } from "react";
 
 const App = () => {
   const theme = useAppSelector((state) => state.theme);
@@ -23,7 +23,6 @@ const App = () => {
   const dispatch = useDispatch<AppDispatch>();
   const windowSize = useWindowSize();
 
-  // Memoize the calculated window size to avoid unnecessary recalculations
   const memoizedWindowSize = useMemo(
     () => calculateWindowSize(windowSize.width),
     [windowSize.width]
@@ -79,4 +78,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default memo(App);

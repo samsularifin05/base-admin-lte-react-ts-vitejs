@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { Link } from "react-router-dom";
 
 interface props {
@@ -27,4 +28,4 @@ const HeaderContent: React.FC<props> = (props) => (
   </section>
 );
 
-export default HeaderContent;
+export default memo(HeaderContent);

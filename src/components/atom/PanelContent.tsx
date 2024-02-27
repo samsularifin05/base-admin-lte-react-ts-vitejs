@@ -1,3 +1,4 @@
+import { memo } from "react";
 import HeaderContent from "./HeaderContent";
 
 interface Props {
@@ -10,20 +11,17 @@ interface Props {
   scroll?: boolean;
 }
 const PanelContent: React.FC<Props> = function (props) {
+  const { headerContent, title, menu, submenu, children } = props;
   return (
     <div>
-      {props.headerContent && (
-        <HeaderContent
-          title={props.title}
-          menu={props.menu}
-          submenu={props.submenu}
-        />
+      {headerContent && (
+        <HeaderContent title={title} menu={menu} submenu={submenu} />
       )}
       <section className="content">
-        <div className="container-fluid">{props.children}</div>
+        <div className="container-fluid">{children}</div>
       </section>
     </div>
   );
 };
 
-export default PanelContent;
+export default memo(PanelContent);

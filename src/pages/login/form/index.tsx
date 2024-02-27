@@ -1,5 +1,5 @@
 import { Button, Col, Row } from "@/components";
-import { ReanderField, setItem, useDispatch } from "@/utils";
+import { ReanderField, memo, setItem, useDispatch } from "@/utils";
 import { Field, reduxForm, InjectedFormProps } from "redux-form";
 import { AppDispatch, utilityActions } from "@/reduxStore";
 import { FormLoginDto } from "../dto/formLoginDto";
@@ -62,4 +62,4 @@ const FormLogin = (props: InjectedFormProps<FormLoginDto>) => {
 
 export default reduxForm<FormLoginDto>({
   form: "FormLogin",
-})(FormLogin);
+})(memo(FormLogin));

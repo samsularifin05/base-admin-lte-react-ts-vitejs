@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 interface ColProps {
   className?: string;
   children?: React.ReactNode;
@@ -9,4 +11,4 @@ const Col: React.FC<ColProps> = (props) => {
   return <div className={className}>{props.children}</div>;
 };
 
-export default Col;
+export default memo(Col);

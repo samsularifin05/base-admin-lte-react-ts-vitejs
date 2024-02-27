@@ -1,5 +1,5 @@
 import { AppDispatch, themesActions } from "@/reduxStore";
-import React, { useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import "@/assets/css/home/index.css";
 import {
@@ -599,4 +599,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default memo(Home);

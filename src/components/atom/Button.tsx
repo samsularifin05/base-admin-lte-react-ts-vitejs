@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 interface props {
   loading?: boolean;
   type?: "button" | "submit" | "reset" | undefined;
@@ -40,4 +42,4 @@ const Button: React.FC<props> = (props) => {
   );
 };
 
-export default Button;
+export default memo(Button);

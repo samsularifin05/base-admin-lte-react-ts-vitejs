@@ -1,11 +1,10 @@
 import { themesActions } from "@/reduxStore/actions";
-import { useEffect } from "react";
+import { memo, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import FormLogin from "./form";
 import { AppDispatch } from "@/reduxStore";
 import { useNavigate } from "react-router-dom";
-import { Skeleton, userData } from "@/utils";
-// type LoginProps = RouteComponentProps;
+import { userData } from "@/utils";
 
 const Login: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -26,9 +25,7 @@ const Login: React.FC = () => {
     };
   }, [dispatch, navigate]);
 
-  return userData.username ? (
-    <Skeleton />
-  ) : (
+  return (
     <div className="login-box container" style={{ marginTop: "10%" }}>
       <div className="card card-outline card-primary">
         <div className="card-header text-center">
@@ -45,4 +42,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default memo(Login);
